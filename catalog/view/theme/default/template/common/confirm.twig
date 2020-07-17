@@ -1,0 +1,137 @@
+{{ header }}
+<!-- breadcrumb -->
+<section id="page-title" class="page-title dark-page-title">
+  <div class="container">
+    <div class="region region-page-title">
+      <div id="block-martis-page-title" class="norm-width block-title-1 block-title-left block block-core block-page-title-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix">
+            <h1>{{heading_title_confirm}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-left region region-breadcrumb">
+      <div id="block-martis-breadcrumbs" class="norm-width block-title-1 block-title-left block block-system block-system-breadcrumb-block" >
+        <div class="container-wrap clearfix">
+          <div class="block-content clearfix"> 
+            <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+              <!-- <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2> -->
+              <ul>
+                {% for breadcrumb in breadcrumbs %}
+                  <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div id="common-success" class="container">
+  <!-- <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul> -->
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <br/>
+      <h3><span class="cat-icon ti-check"></span> {{ heading_title_confirm }}</h3>
+      <h5 style="color: green;">{{ text_confirm_message }}</h5>
+
+      <div class="row">
+        <div class="col-sm-6"><input type="text" name="otpCode" placeholder="Confirm Security Code" class="form-control"/></div>
+        <div style="padding-top:5px;" class="col-sm-4"> <div id="countdown"></div></div>
+      </div>
+      <div class="row" style="padding-top: 10px;">
+        <div class="col-sm-12">
+          <input type="hidden" name="customer_id" value="{{customer_id}}"/>
+          <input type="hidden" name="telephone" value="{{telephone}}"/>
+          Didn't receive? <a href="javascript:void(0)" id="requestCode"><strong>Resend code</strong> <span class="resent-message"></span></a>
+        </div>
+      </div>
+      <div class="buttons">
+        <br/>
+        <div><a href="javascript:void(0);" id="checkConfirmOTP" class="btn btn-primary">{{ button_confirm_number }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+
+<script>
+  $(document).delegate('#checkConfirmOTP', 'click', function() {
+    var customer_id = $("input[name='customer_id']").val();
+    var otpCode = $("input[name='otpCode']").val();
+      $.ajax({
+        url: 'index.php?route=account/confirm/checkConfirmOTP',
+        dataType: 'json',
+        data: "customer_id="+customer_id+"&otpCode="+otpCode,
+        success: function(json) {
+          if(json["success"] == true){
+            alert(json["message"]);
+            window.location.href = json["redirect"];
+          }else{
+            alert(json["message"]);
+          }
+          // alert(json["success"]);
+          
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      });
+  });
+
+  $(document).delegate('#requestCode', 'click', function() {
+    var customer_id = $("input[name='customer_id']").val();
+    var telephone = $("input[name='telephone']").val();
+    $.ajax({
+      url: 'index.php?route=account/confirm/resentCode',
+      dataType: 'json',
+      data: "customer_id="+customer_id+"&telephone="+telephone,
+      success: function(json) {
+
+        $("span.resent-message").html("<span style='color: green;'><br/>(Message is resent!)</span>");
+        var timeleft = 59;
+        var downloadTimer = setInterval(function(){
+          if(timeleft <= 0){
+            document.getElementById("countdown").innerHTML = "Finished";
+          } else {
+            var timeleft = 59;
+            window.clearTimeout(downloadTimer);
+            downloadTimer = setTimeout(300);
+            document.getElementById("countdown").innerHTML = 'Will expired in <strong>' + timeleft + " </strong> seconds.";
+          }
+          timeleft -= 1;
+        }, 1000);
+        
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+    });
+  });
+  
+  var timeleft = 59;
+  var downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = "Finished";
+    } else {
+      document.getElementById("countdown").innerHTML = 'Will expired in <strong>' + timeleft + " </strong> seconds.";
+    }
+    timeleft -= 1;
+  }, 1000);
+</script>
+{{ footer }}

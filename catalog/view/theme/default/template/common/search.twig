@@ -1,0 +1,43 @@
+<!-- <div id="search" class="input-group">
+  <input type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}" class="form-control input-lg" />
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+  </span>
+</div> -->
+
+<form action="#" method="get" id="views-exposed-form-product-catalog-product-catalog-search" accept-charset="UTF-8">
+  <div class="form-item js-form-item form-type-select js-form-type-select form-item-field-product-category js-form-item-field-product-category">
+      <div class="select-wrapper">
+        <select name="category_id" id="edit-field-product-category" class="form-select form-control">
+          <option value="0">{{ text_category }}</option>
+          {% for category_1 in categories %}
+          {% if category_1.category_id == category_id %}
+          <option value="{{ category_1.category_id }}" selected="selected">{{ category_1.name }}</option>
+          {% else %}
+          <option value="{{ category_1.category_id }}">{{ category_1.name }}</option>
+          {% endif %}
+          {% for category_2 in category_1.children %}
+          {% if category_2.category_id == category_id %}
+          <option value="{{ category_2.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+          {% else %}
+          <option value="{{ category_2.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+          {% endif %}
+          {% for category_3 in category_2.children %}
+          {% if category_3.category_id == category_id %}
+          <option value="{{ category_3.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+          {% else %}
+          <option value="{{ category_3.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+          {% endfor %}
+        </select>
+      </div>
+  </div>
+  <div id="search" class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-text js-form-item-text">
+    <input name="search" value="{{ search }}" placeholder="{{ text_search }}" data-drupal-selector="edit-text" type="text" id="edit-text search-val" size="30" maxlength="128" class="form-text search" />
+  </div>
+  <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+    <button data-drupal-selector="edit-submit-product-catalog" type="button" id="edit-submit-product-catalog" value="Search" class="search-action button js-form-submit form-submit"><i class="ti-search"></i></button>
+  </div>
+</form>
