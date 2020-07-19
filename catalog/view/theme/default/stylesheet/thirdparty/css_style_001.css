@@ -24368,7 +24368,7 @@ input[type="submit"],
 [type="radio"]:checked+span+label:after,
 [type="radio"]:checked+label:after,
 [type="checkbox"]:checked+label:after {
-    background-color: #3f6bb4;
+    background-color: #d2aba2;
     color: #ffffff;
 }
 
