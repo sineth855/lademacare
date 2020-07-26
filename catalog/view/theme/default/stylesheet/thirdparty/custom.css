@@ -4,6 +4,13 @@
 }
 
 @font-face {
+    font-family: 'dauntep';
+    src: url("./../font/DAUNTEP.ttf") format("opentype");
+}
+
+
+/* 
+@font-face {
     font-family: 'PT Sans';
     font-style: italic;
     font-weight: 400;
@@ -22,7 +29,7 @@
     font-style: normal;
     font-weight: 700;
     src: local('PT Sans Bold'), local('PTSans-Bold'), url(https://fonts.gstatic.com/s/ptsans/v11/jizfRExUiTo99u79B_mh0O6tKA.ttf) format('truetype')
-}
+} */
 
 html,
 body {
@@ -38,6 +45,40 @@ body {
 body * {
     font-style: normal;
     /* font-weight: normal; */
+}
+
+.fsp_header,
+.fsp_title,
+.fsp_title b,
+.fsp_text,
+.gender,
+.footer-widget h3,
+.count-down-timer h2,
+.count-down-timer p,
+.button_none_radius,
+.cat-label,
+.box-desc h5,
+.box-desc p,
+.container-wrap button,
+.menu-parent li a,
+.nice-select span,
+input,
+button,
+strong,
+p,
+span,
+h1,
+label,
+legend,
+ul li a,
+a,
+h3,
+.header-title,
+.alert-success,
+table.table.addon-product tr th,
+table.table.addon-product tr td,
+.product_title_container {
+    font-family: 'dauntep';
 }
 
 .col-lg-55 {
@@ -380,8 +421,8 @@ h2.price_red {
         /* text-align: center; */
     }
     .nav-button {
-        border-color: #f7941f;
-        color: #f7941f;
+        border-color: #d2aba2;
+        color: #d2aba2;
     }
     /* .nav-button{ position: fixed; left: 0; } */
     .mobile-flag,
@@ -406,12 +447,12 @@ h2.price_red {
         height: 100%;
     }
     .border-line {
-        border-right: 1.5px solid #f7941f;
+        border-right: 1.5px solid #d2aba2;
         height: 55px;
         margin: 0 8px;
     }
     .line-lang {
-        border-right: 1px solid #f7941f;
+        border-right: 1px solid #d2aba2;
         height: 22px;
         margin: 0 6px;
     }
