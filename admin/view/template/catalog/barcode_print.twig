@@ -1,0 +1,207 @@
+<div id="content">
+
+  <div class="container-fluid">
+
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-product">
+          <div class="table-responsive">
+            <div class="row">
+              <div class="col-sm-12" style="padding-bottom: 20px; font-size: 16px;">
+                {% if filter_model != '' %}
+                  Model: {{filter_model}}
+                {% endif %}
+                {% if filter_name != '' %}
+                  Product: {{filter_name}}
+                {% endif %}
+              </div>
+
+              {# <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Women T-Shirt</b><br/><br/>
+                  <img width="150px" src="{{barcode_url}}"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div> #}
+
+              {# <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Women T-Shirt</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div>
+              <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>iPhone8</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div>
+              <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Men Shirt Fashion</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div>
+              <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Shose Fashion</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div>
+              <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Barcode A</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div>
+              <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                <center>
+                  <b>Barcode A</b><br/><br/>
+                  <img width="150px" src="../image/userfiles/code-128_4.png"/>
+                  <br/>
+                  98445678965
+                </center>
+              </div> #}
+            </div>
+
+            <div class="print-barcode-area">
+              {% if products %} 
+                {% for product in products %}
+                  <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                    <center>
+                      <b>{{product.name}}</b><br/><br/>
+                      {# <img width="150px" src="../image/userfiles/code-128_4.png"/> #}
+                      <img height="65px" src="{{barcode_url}}&text={{product.upc}}"/>
+                    </center>
+                  </div>
+                {% endfor %} 
+              {% else %}
+                <center>There is no universal product code found !</center>
+              {% endif %}
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media print {
+    span.donotprint{
+      display: hidden;
+    }
+    
+  }
+</style>
+
+<script type="text/javascript"><!--
+  window.print();
+$('#button-filter').on('click', function() {
+	var url = '';
+
+	var filter_name = $('input[name=\'filter_name\']').val();
+
+	if (filter_name) {
+		url += '&filter_name=' + encodeURIComponent(filter_name);
+	}
+
+	var filter_model = $('input[name=\'filter_model\']').val();
+
+	if (filter_model) {
+		url += '&filter_model=' + encodeURIComponent(filter_model);
+	}
+
+	var filter_price = $('input[name=\'filter_price\']').val();
+
+	if (filter_price) {
+		url += '&filter_price=' + encodeURIComponent(filter_price);
+	}
+
+	var filter_quantity = $('input[name=\'filter_quantity\']').val();
+
+	if (filter_quantity) {
+		url += '&filter_quantity=' + encodeURIComponent(filter_quantity);
+	}
+
+	var filter_status = $('select[name=\'filter_status\']').val();
+
+	if (filter_status !== '') {
+		url += '&filter_status=' + encodeURIComponent(filter_status);
+	}
+
+	location = 'index.php?route=catalog/barcode&user_token={{ user_token }}' + url;
+});
+//--></script> 
+  <script type="text/javascript"><!--
+// IE and Edge fix!
+$('button[form=\'form-product\']').on('click', function(e) {
+	$('#form-product').attr('action', $(this).attr('formaction'));
+});
+  
+$('#print-barcode').on('click', function(e) {
+  window.print();
+});
+
+$('input[name=\'filter_name\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['product_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'filter_name\']').val(item['label']);
+	}
+});
+
+$('input[name=\'filter_model\']').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_model=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['model'],
+						value: item['product_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+		$('input[name=\'filter_model\']').val(item['label']);
+	}
+});
+//--></script>

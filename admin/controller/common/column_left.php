@@ -61,6 +61,14 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()	
 				);
 			}
+
+			if ($this->user->hasPermission('access', 'catalog/barcode')) {
+				$catalog[] = array(
+					'name'     => $this->language->get('text_barcode'),
+					'href'     => $this->url->link('catalog/barcode', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()	
+				);
+			}
 			
 			if ($this->user->hasPermission('access', 'catalog/attribute_group')) {
 				$attribute[] = array(
