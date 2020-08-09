@@ -3,10 +3,11 @@
     src: url("./../font/HelveticaNeueLTStd-HvCnO.otf") format("opentype");
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'dauntep';
     src: url("./../font/DAUNTEP.ttf") format("opentype");
-}
+} */
 
 
 /* 
@@ -44,41 +45,14 @@ body {
 
 body * {
     font-style: normal;
-    /* font-weight: normal; */
 }
 
-.fsp_header,
-.fsp_title,
-.fsp_title b,
-.fsp_text,
-.gender,
-.footer-widget h3,
-.count-down-timer h2,
-.count-down-timer p,
-.button_none_radius,
-.cat-label,
-.box-desc h5,
-.box-desc p,
-.container-wrap button,
-.menu-parent li a,
-.nice-select span,
-input,
-button,
-strong,
-p,
-span,
-h1,
-label,
-legend,
-ul li a,
-a,
-h3,
-.header-title,
-.alert-success,
-table.table.addon-product tr th,
-table.table.addon-product tr td,
-.product_title_container {
-    font-family: 'dauntep';
+.radio {
+    display: inline-block;
+}
+
+#tab-description p {
+    font-family: 'dauntep' !important;
 }
 
 .col-lg-55 {
@@ -104,7 +78,6 @@ p.price.product-price b {
 }
 
 .button_none_radius {
-    /* font-family: 'HelveticaNeueLTStd'; */
     -webkit-border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     -ms-border-radius: 0px !important;
@@ -113,9 +86,6 @@ p.price.product-price b {
     background-color: #d0aaa1;
     cursor: pointer;
     color: #ffffff;
-    /* line-height: 40px; */
-    /* font-weight: 900; */
-    /* padding: 0px 30px; */
     border: none !important;
     display: inline-block;
     position: relative;
@@ -302,7 +272,8 @@ tbody tr td {
 
 .cart-table table thead {
     text-transform: capitalize !important;
-    background: #f7941f;
+    background: #d2aba2;
+    font-size: 14px;
     color: #ffffff;
 }
 
@@ -324,11 +295,7 @@ h2.price_red {
     #modal_inside {
         width: 99%;
     }
-    /* #modal_inside {
-        min-width: 100%;
-    } */
     .cart-table table tr>td {
-        font: bold 10px "PT Sans";
         color: #333;
         padding: 10px;
         margin: 0px;
@@ -380,7 +347,6 @@ h2.price_red {
     .logo-mobile {
         display: block;
     }
-    /* .logo-web { display: none; } */
     .fixHeader {
         position: fixed;
         z-index: 99;
@@ -416,15 +382,10 @@ h2.price_red {
         margin-bottom: 20px;
         display: none;
     }
-    .region,
-    .container-wrap {
-        /* text-align: center; */
-    }
     .nav-button {
         border-color: #d2aba2;
         color: #d2aba2;
     }
-    /* .nav-button{ position: fixed; left: 0; } */
     .mobile-flag,
     span.mobile-flag {
         display: block !important;
@@ -715,9 +676,10 @@ h2.timer {
     color: #ffffff;
 }
 
-#content {
+
+/* #content {
     padding: 30px 0;
-}
+} */
 
 .checkout-progress--step:before {
     background: green;
@@ -758,16 +720,6 @@ popup modal option select */
     margin: 0 15px;
     border-bottom: 1px solid #ccc;
 }
-
-
-/* #modal_inside .header-title_ {
-    display: block;
-    font: normal 18px "Arial";
-    color: #333;
-    padding: 15px 0;
-    margin: 0 15px;
-    text-align: center;
-} */
 
 #modal_inside.btn-wrap {
     position: relative;
@@ -811,9 +763,6 @@ popup modal option select */
     padding-bottom: 2vh;
 }
 
-
-/* .form-text { width: 100%; } */
-
 select.form-field-input.form-field-select.form-field-filled {
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
@@ -841,14 +790,10 @@ select.form-field-input.form-field-select.form-field-filled {
 .t-bg {
     float: left;
     background: #f7941f;
-    /*background: #444;*/
     color: #ffffff;
-    /* margin: 2px; */
     text-align: center;
     line-height: 30px;
     font-size: 1.2em;
-    /* border-radius: 4px; */
-    /* padding: 6px; */
     width: 100%;
     font-weight: normal;
 }
@@ -869,11 +814,6 @@ select.form-field-input.form-field-select.form-field-filled {
     font-size: 15px;
     padding-right: 10px;
 }
-
-
-/* .popup-mobile-register {
-    text-align: center;
-} */
 
 .wrapper-popup {
     max-width: 100%;
@@ -900,7 +840,6 @@ footer.footer {
 }
 
 .footer {
-    /* background-color: #3f6bb4; */
     background-color: #19212c;
 }
 

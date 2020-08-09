@@ -46,7 +46,11 @@
     <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for analytic in analytics %} {{ analytic }} {% endfor %}
 
 </head>
-
+    {% if code_language == "kh-gb" %}
+	    <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/kh.css" />
+    {% else %}
+        <link rel="stylesheet" media="all" href="catalog/view/theme/default/stylesheet/thirdparty/en.css" />
+    {% endif %}
 <div class="userRegisterPopUp" id="bodyheadertext_login" style="display: none;">
     <div id="modal_containerPopUp">
         <div id="modal_inside" class="wrapper-popup">
