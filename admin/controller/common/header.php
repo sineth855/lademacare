@@ -21,6 +21,8 @@ class ControllerCommonHeader extends Controller {
 		$data['direction'] = $this->language->get('direction');
 
 		$this->load->language('common/header');
+
+		
 		
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->user->getUserName());
 

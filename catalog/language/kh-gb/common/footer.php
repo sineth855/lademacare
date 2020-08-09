@@ -15,4 +15,4 @@ $_['text_order']        = 'ប្រវត្តិនៃការកម្ម�
 $_['text_wishlist']     = 'Wish List';
 $_['text_newsletter']   = 'Newsletter';
 $_['text_contact_with_us']   = 'ទំនាក់ទំនងមកកាន់ពួកយើង';
-$_['text_powered']      = 'Powered By <a href="http://www.opencart.com">OpenCart</a><br /> %s &copy; %s';
+$_['text_powered']      = 'Powered By %s &copy; %s';
