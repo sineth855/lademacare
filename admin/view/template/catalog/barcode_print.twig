@@ -88,14 +88,19 @@
             <div class="print-barcode-area">
               {% if products %} 
                 {% for product in products %}
-                  <div clsas="col-sm-2" style="float: left; width: 20%; padding-bottom: 40px;">
+                  <div clsas="col-sm-3" style="float: left; width: 25%; padding-bottom: 40px;">
                     <center>
-                      <b>{{product.name}}</b><br/><br/>
-                      {# <img width="150px" src="../image/userfiles/code-128_4.png"/> #}
-                      <img height="65px" src="{{barcode_url}}&text={{product.upc}}"/>
+                      <div style="position: relative;">
+                        <b>{{product.name}}</b><br/><br/><br/>
+                        <div style="position: absolute; left: 0; right: 0;top: 27%;">
+                          <img width="85px" src="../image/userfiles/qrcode.png"/>
+                        </div>
+                        {# <img src="../image/userfiles/qrcode.png"/> #}
+                        <img height="80px" src="{{barcode_url}}&text={{product.upc}}"/>
+                      </div>
                     </center>
                   </div>
-                {% endfor %} 
+                {% endfor %}
               {% else %}
                 <center>There is no universal product code found !</center>
               {% endif %}
