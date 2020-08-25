@@ -2,7 +2,9 @@
 template_accept/*
 template/*
 system/*
-image/*
+image/cache/*
+image/catalog/*
+image/payment/*
 catalog/view/theme/default/martis
 nutrition_warehouse_db.sql
 storage/cache/*
@@ -23,3 +25,5 @@ storage/logs/error.log
 catalog/language.zip
 storage/logs/error.log
 config.php
+catalog/language (2).zip
+system.zip
