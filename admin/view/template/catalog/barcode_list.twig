@@ -153,11 +153,12 @@
                     <center>
                       <div style="position: relative;">
                         <b>{{product.name}}</b><br/><br/><br/>
-                        <div style="position: absolute; left: 0; right: 0;top: 27%;">
-                          <img width="85px" src="../image/userfiles/qrcode.png"/>
+                        <div style="left: 0; right: 0;top: 27%;padding-bottom: 15px;">
+                          {# <img width="85px" src="../image/userfiles/qrcode.png"/> #}
+                          <img width="90px" src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=http://lademacarecambodia.com/index.php?route=product/product%26product_id={{product.product_id}}'>
                         </div>
                         {# <img src="../image/userfiles/qrcode.png"/> #}
-                        <img height="80px" src="{{barcode_url}}&text={{product.upc}}"/>
+                        <img height="60px" src="{{barcode_url}}&text={{product.ean}}"/>
                       </div>
                     </center>
                   </div>

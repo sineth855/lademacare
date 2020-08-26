@@ -45,7 +45,7 @@ class ControllerCatalogBarcode extends Controller {
 		$default_value['start'] = '';
 		$start = isset($_REQUEST['start']) ? $_REQUEST['start'] : $default_value['start'];
 		registerImageKey('start', $start);
-		registerImageKey('code', 'BCGcode128');
+		registerImageKey('code', 'BCGean13');
     
         $default_value = array();
         $default_value['filetype'] = //$filetype;
@@ -83,7 +83,7 @@ class ControllerCatalogBarcode extends Controller {
         $default_value['start'] = '';
         $start = isset($_GET['start']) ? $_GET['start'] : $default_value['start'];
         registerImageKey('start', $start);
-        registerImageKey('code', 'BCGcode128');
+        registerImageKey('code', 'BCGean13');
 
         $vals = array();
         for($i = 0; $i <= 127; $i++) {
@@ -111,7 +111,7 @@ class ControllerCatalogBarcode extends Controller {
 	}
 	
 	protected function getList() {
-		$data['barcode_url'] = "../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&start=NULL&code=BCGcode128";//"../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&text=345435345&start=NULL&code=BCGcode128";
+		$data['barcode_url'] = "../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=15&start=NULL&code=BCGean13";//"../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&text=345435345&start=NULL&code=BCGean13";
 		$data['user_token'] = $this->session->data['user_token'];
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
@@ -201,7 +201,7 @@ class ControllerCatalogBarcode extends Controller {
 				'product_id' => $result['product_id'],
 				'image'      => $image,
 				'name'       => $result['name'],
-				'upc'       => $result['upc'],
+				'ean'       => $result['ean'],
 				'model'      => $result['model'],
 				'price'      => $this->currency->format($result['price'], $this->config->get('config_currency')),
 				'special'    => $special,
@@ -268,7 +268,7 @@ class ControllerCatalogBarcode extends Controller {
 		$default_value['start'] = '';
 		$start = isset($_REQUEST['start']) ? $_REQUEST['start'] : $default_value['start'];
 		registerImageKey('start', $start);
-		registerImageKey('code', 'BCGcode128');
+		registerImageKey('code', 'BCGean13');
     
         $default_value = array();
         $default_value['filetype'] = //$filetype;
@@ -306,7 +306,7 @@ class ControllerCatalogBarcode extends Controller {
         $default_value['start'] = '';
         $start = isset($_GET['start']) ? $_GET['start'] : $default_value['start'];
         registerImageKey('start', $start);
-        registerImageKey('code', 'BCGcode128');
+        registerImageKey('code', 'BCGean13');
 
         $vals = array();
         for($i = 0; $i <= 127; $i++) {
@@ -334,7 +334,7 @@ class ControllerCatalogBarcode extends Controller {
 	}
 	
 	protected function getListPrint() {
-		$data['barcode_url'] = "../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&start=NULL&code=BCGcode128";//"../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&text=345435345&start=NULL&code=BCGcode128";
+		$data['barcode_url'] = "../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=15&start=NULL&code=BCGean13";//"../../../vendor/barcodegen/html/image.php?filetype=PNG&dpi=72&scale=2&rotation=0&font_family=Arial.ttf&font_size=11&text=345435345&start=NULL&code=BCGean13";
 		$data['user_token'] = $this->session->data['user_token'];
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
@@ -424,7 +424,7 @@ class ControllerCatalogBarcode extends Controller {
 				'product_id' => $result['product_id'],
 				'image'      => $image,
 				'name'       => $result['name'],
-				'upc'       => $result['upc'],
+				'ean'       => $result['ean'],
 				'model'      => $result['model'],
 				'price'      => $this->currency->format($result['price'], $this->config->get('config_currency')),
 				'special'    => $special,
