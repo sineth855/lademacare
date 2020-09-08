@@ -1,12 +1,10 @@
-
 @font-face {
     font-family: 'HelveticaNeueLTStd';
     src: url("./../font/HelveticaNeueLTStd-HvCnO.otf") format("opentype");
 }
 
 
-/* 
-.fsp_header,
+/* .fsp_header,
 .fsp_title,
 .fsp_title b,
 .fsp_text,
@@ -43,4 +41,3 @@ table.table.addon-product tr td,
 .button_none_radius {
     font-family: 'HelveticaNeueLTStd';
 }
-
