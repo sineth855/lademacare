@@ -40,6 +40,7 @@ class ControllerCommonHeader extends Controller {
 		$data['direction'] = $this->language->get('direction');
 		$data['cartLink'] = $this->url->link('checkout/cart');
 		$data['telephone'] = $this->config->get('config_telephone');
+		$data['comment'] = $this->config->get('config_comment');
 		$data['contact'] = $this->url->link('information/contact');
 		$data['name'] = $this->config->get('config_name');
 
