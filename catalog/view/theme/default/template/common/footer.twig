@@ -840,3 +840,35 @@ Please donate via PayPal to donate@opencart.com
     }
 </script>
 <script src="catalog/view/javascript/thirdparty/js_e-lu2bO4fWt0bVscMrfVZCcTmv8FzaYXGKaKWPvUBJ8.js"></script>
+
+
+<!-- owl.carousel.min js -->
+<script type="text/javascript" src="catalog/view/javascript/js/owl.carousel.min.js"></script>
+<link href="catalog/view/javascript/jquery/owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+<script type="text/javascript">
+  $('#carousel1').owlCarousel({
+    items: 3,
+    autoPlay: 3000,
+    navigation: true,
+    navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+    pagination: true,
+    margin:10,
+    loop: true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:4,
+            nav:true,
+            loop:false
+        }
+    }
+  });
+</script>

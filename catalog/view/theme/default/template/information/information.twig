@@ -45,9 +45,35 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
+    <div id="content" class="{{ class }}">
+    {% if information_id %}
+      {{ content_top }}
+    {% endif %}  
       <h1>{{ heading_title }}</h1>
       {{ description }}{{ content_bottom }}</div>
     {{ column_right }}</div>
+
 </div>
+{% if information_id %}
+  <div class="container padding-top-md" style="padding-bottom: 15px;">
+    <div class="clearfix"></div>
+    <div id="carousel1" class="owl-carousel">
+      {% for gallery in gallery_info %}
+      <div class="item">
+        <img style="width:100%" src="{{gallery.image}}" alt="" class="_img-responsive" />
+        <div class="desc_latest">        
+          <div class="tpro_latest" style="padding-top: 10px;">
+            <h4 class="title-info">{{ gallery.title }}</h4>
+          </div> 
+          <p>
+            {{ gallery.description }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endif %}
+
 {{ footer }}

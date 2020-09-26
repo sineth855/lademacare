@@ -12,8 +12,30 @@ class ControllerInformationInformation extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+		$galleries = $this->model_catalog_information->getGallery();
+
+		$this->load->model('tool/image');
+
+		$data['gallery_info'] = array();
+
+		foreach($galleries as $gallery){
+			$image = $this->model_tool_image->resize($gallery['image'], 500, 500);
+			$data['gallery_info'][] = array(
+
+				'title' => $gallery['title'],
+
+				'description' => html_entity_decode($gallery['description'], ENT_QUOTES, 'UTF-8'),
+
+				'image'       => $image,
+
+			);
+		}
+		
 		if (isset($this->request->get['information_id'])) {
 			$information_id = (int)$this->request->get['information_id'];
+			if($information_id == 8) {
+				$data['information_id'] = $information_id;
+			} 
 		} else {
 			$information_id = 0;
 		}
