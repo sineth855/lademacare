@@ -4,6 +4,7 @@ $_['text_api']                  = 'API';
 $_['text_attribute']            = 'Attributes';
 $_['text_barcode']              = 'Barcode';
 $_['text_attribute_group']      = 'Attribute Groups';
+$_['text_gallery']              = 'Gallery';
 $_['text_backup']               = 'Backup / Restore';
 $_['text_banner']               = 'Banners';
 $_['text_catalog']              = 'Catalog';
