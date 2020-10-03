@@ -11,9 +11,32 @@
   </div>
 </div> #}
 
+<div class="container padding-top-md_" style="padding-bottom: 15px;">
+	<div class="clearfix text-center">
+		<div class="block-title-content">
+			<h2 class="block-title">Our Parter</h2>
+		</div>
+	</div>
+    <div class="clearfix"></div>
+    <div id="carousel2" class="owl-carousel">
+	{% for banner in banners %}
+      <div class="item">
+        <!-- <img style="width:100%" src="{{gallery.image}}" alt="" class="_img-responsive" /> -->
+    		{% if banner.link %}
+		
+			<a href="{{ banner.link }}" class="brand-logo">
+				<img style="width:100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" typeof="Image"/>
+			</a>
+			{% else %}
+				<img style="width:100%" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" typeof="Image" />
+			{% endif %}
+      </div>
+      {% endfor %}
 
+    </div>
+  </div>
 <!-- our partner- -->
-<section style="-display: none;" id="content-wide" class="content-wide container">
+<section style="display: none;" id="content-wide" class="content-wide container">
 	<div class="region region-content-wide">
 		<div class="views-element-container norm-width block-title-1 block-title-left block block-views block-views-blockproduct-taxonomy-brand-logos" id="block-views-block-product-taxonomy-brand-logos">
 			<!-- <div class="clearfix text-center">
@@ -61,4 +84,7 @@ $('#carousel{{ module }}').swiper({
 	autoplay: 2500,
 	loop: true
 });
---></script>
+-->
+
+
+</script>

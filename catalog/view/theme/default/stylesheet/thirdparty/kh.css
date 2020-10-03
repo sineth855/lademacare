@@ -34,6 +34,7 @@ h5,
 .alert-success,
 table.table.addon-product tr th,
 table.table.addon-product tr td,
-.product_title_container {
+.product_title_container,
+.field-label-hidden {
     font-family: 'dauntep';
 }
