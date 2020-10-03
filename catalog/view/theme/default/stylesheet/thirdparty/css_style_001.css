@@ -29,6 +29,11 @@
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
+@font-face {
+    font-family: 'dauntep';
+    src: url("./../font/DAUNTEP.ttf") format("opentype");
+}
+
 *,
 ::after,
 ::before {
@@ -24721,6 +24726,6 @@ body {
     background: #869791
 }
 
-div#block-shop-icon-box {
-    padding: 10%;
+.field-label-hidden {
+    font-family: 'dauntep';
 }

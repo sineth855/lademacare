@@ -292,6 +292,9 @@ h2.price_red {
 }
 
 @media (max-width:768px) {
+    div#block-shop-icon-box {
+        padding: 10%;
+    }
     #modal_inside {
         width: 99%;
     }
@@ -372,7 +375,7 @@ h2.price_red {
     }
     .container-wrap .owl-carousel .owl-item img {
         /* height: 250px !important; */
-        transform: scale(1.05);
+        /* transform: scale(1.05); */
     }
     .bg-header {
         background-color: #303030;
@@ -510,11 +513,25 @@ h2.price_red {
     .count-down-timer {}
 }
 
+.display_web {
+    display: block;
+}
+
+.display_mobile {
+    display: none;
+}
+
 @media (max-width: 576px) {
+    .display_web {
+        display: none;
+    }
+    .display_mobile {
+        display: block;
+    }
     .container-wrap .owl-carousel .owl-item img {
         display: block;
         width: 100%;
-        height: 200px;
+        /* height: 150px; */
     }
     .form-wrapper__returning-customer {
         width: 48%;
