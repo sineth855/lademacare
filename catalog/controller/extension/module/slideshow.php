@@ -21,7 +21,7 @@ class ControllerExtensionModuleSlideshow extends Controller {
 					'description' => $result['description'],
 					'link'  => $result['link'],
 					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
-					// 'image' => $this->model_tool_image->resize($result['image'], 1920, 770)
+					//'image' => $this->model_tool_image->resize($result['image'], 544, 480)
 				);	
 			}
 		}
