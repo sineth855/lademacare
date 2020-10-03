@@ -130,7 +130,13 @@
                             <div id="block-clearance-sales" class="norm-width block-title-1 block-title-left block block-block-content block-block-content9aa5ff88-bebe-4f37-94b7-8e475b514f45">
                                 <div class="container-wrap clearfix">
                                     <div class="block-content clearfix">
-                                        <div class="field field-body field-type-text-with-summary field-label-hidden field-item">{{comment}}</div>
+                                        <div class="field ឋ-body field-type-text-with-summary field-label-hidden field-item">
+                                            {% if code_language == "kh-gb" %}
+                                                រាល់ផលិផលទាំងអស់ធានាគុណភាព សុវតិ្ថភាពក្នុងការប្រើប្រាស់
+                                            {% else %}
+                                                {{comment}}
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
