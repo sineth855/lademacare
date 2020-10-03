@@ -20689,6 +20689,7 @@ fieldset {
 
 .box-icon .box-icon-title {
     margin-bottom: 3px;
+    text-align: center;
 }
 
 .box-icon .box-icon-item .box-desc {
@@ -20714,6 +20715,7 @@ fieldset {
     font-size: 35px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    margin-top: 10px;
 }
 
 .box-icon-plain {

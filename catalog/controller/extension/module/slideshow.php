@@ -20,8 +20,8 @@ class ControllerExtensionModuleSlideshow extends Controller {
 					'title' => $result['title'],
 					'description' => $result['description'],
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
-					//'image' => $this->model_tool_image->resize($result['image'], 544, 480)
+					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']),
+					'image_web' => 'https://www.nwcambodia.com/demo/image/cache/catalog/slider/1%20Test%20Banner%20Web%20Mobile%20-545x480.png'
 				);	
 			}
 		}

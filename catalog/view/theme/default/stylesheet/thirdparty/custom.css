@@ -292,9 +292,6 @@ h2.price_red {
 }
 
 @media (max-width:768px) {
-    div#block-shop-icon-box {
-        padding: 10%;
-    }
     #modal_inside {
         width: 99%;
     }
@@ -513,21 +510,7 @@ h2.price_red {
     .count-down-timer {}
 }
 
-.display_web {
-    display: block;
-}
-
-.display_mobile {
-    display: none;
-}
-
 @media (max-width: 576px) {
-    .display_web {
-        display: none;
-    }
-    .display_mobile {
-        display: block;
-    }
     .container-wrap .owl-carousel .owl-item img {
         display: block;
         width: 100%;
