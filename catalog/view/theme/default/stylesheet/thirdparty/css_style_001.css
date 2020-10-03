@@ -17735,7 +17735,7 @@ ul.links.inline li {
 .owl-carousel .owl-dots {
     margin-top: 0;
     position: absolute;
-    bottom: -45px;
+    /* bottom: -45px; */
     width: 100%;
     text-align: center;
 }
@@ -23730,7 +23730,7 @@ input[type="submit"],
     .page-wrapper,
     .content-wide .block {
         padding-top: 35px;
-        padding-bottom: 35px;
+        padding-bottom: 20px;
     }
     .header-top {
         text-align: center;
@@ -24719,4 +24719,8 @@ body {
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
     background: #869791
+}
+
+div#block-shop-icon-box {
+    padding: 10%;
 }

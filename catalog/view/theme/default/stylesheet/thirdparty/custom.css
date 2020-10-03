@@ -371,7 +371,7 @@ h2.price_red {
         background-color: #303030;
     }
     .container-wrap .owl-carousel .owl-item img {
-        height: 250px !important;
+        /* height: 250px !important; */
         transform: scale(1.05);
     }
     .bg-header {
